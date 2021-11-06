@@ -3,9 +3,9 @@
 #                    BUILD                     #
 ################################################
 
-FROM archlinux:latest
+FROM archlinux:latest as builder
 
-RUN pacman -Syu gcc base-devel make
+RUN yes | pacman -Syu base-devel
 
 WORKDIR /build
 
@@ -23,12 +23,12 @@ FROM archlinux:latest
 
 WORKDIR /app
 
-RUN usermod -G wheel fatmeat && chown -R fatmeat /app
+RUN useradd chucknorris && chown -R chucknorris /app
 
-USER fatmeat
+USER chucknorris
 
 COPY --from=builder /build/* /app/player
 
-RUN pacman -Syu gcc base-devel make
+RUN yes | pacman -Syu base-devel
 
-cmd make | ./player
+CMD ./chucknorris
