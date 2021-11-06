@@ -1,4 +1,9 @@
-FROM archlinux:latest as builder
+
+################################################
+#                    BUILD                     #
+################################################
+
+FROM archlinux:latest
 
 RUN pacman -Syu gcc base-devel make
 
@@ -8,12 +13,22 @@ COPY . .
 
 RUN make -C /setup
 
-FROM debian:10-slim
+
+###############################################
+#                    RUN                      #
+###############################################
+
+
+FROM archlinux:latest
 
 WORKDIR /app
 
 RUN usermod -G wheel fatmeat && chown -R fatmeat /app
 
-USER player
+USER fatmeat
 
 COPY --from=builder /build/* /app/player
+
+RUN pacman -Syu gcc base-devel make
+
+cmd make | ./player
