@@ -5,7 +5,7 @@
 
 FROM archlinux:latest as builder
 
-RUN yes | pacman -Syu base-devel
+RUN yes | pacman -Syu git make sudo
 
 WORKDIR /build
 
@@ -23,12 +23,12 @@ FROM archlinux:latest
 
 WORKDIR /app
 
-RUN useradd chucknorris && chown -R chucknorris /app
+RUN yes | pacman -Syu git make
+
+RUN useradd -G wheel chucknorris && chown -R chucknorris /app
 
 USER chucknorris
 
 COPY --from=builder /build/* /app/player
-
-RUN yes | pacman -Syu base-devel
 
 CMD ./chucknorris
