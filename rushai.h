@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:01:26 by acarle-m          #+#    #+#             */
-/*   Updated: 2021/11/06 14:47:13 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/06 16:27:45 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <unistd.h>
 # include <stdlib.h>
+# include <stdio.h>
 
 /*			struct			*/
 
@@ -51,5 +52,7 @@ void	ft_display(struct s_amove **jeu, int widht, int height);
 t_amove	**ft_init_struct(int widht, int height);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
+int		ft_add_token(struct s_amove **jeu, int column, int side, int widht, int height);
+void	ft_free(struct s_amove **jeu, int height);
 
 #endif

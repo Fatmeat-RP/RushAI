@@ -1,43 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struct.c                                   :+:      :+:    :+:   */
+/*   ft_add_token.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 13:57:27 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/06 16:30:35 by njaros           ###   ########lyon.fr   */
+/*   Created: 2021/11/06 15:03:08 by njaros            #+#    #+#             */
+/*   Updated: 2021/11/06 16:14:36 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rushai.h"
 
-t_amove	**ft_init_struct(int widht, int height)
+int	ft_add_token(struct s_amove **jeu, int column, int side, int widht, int height)
 {
-	t_amove	**init;
-	int	h;
-	int w;
-	int	s;
+	int	i;
 
-	s = sizeof(t_amove);
-	h = 0;
-	init = malloc((sizeof(t_amove*)) * height);
-	if (!init)
-		return (NULL);
-	while (h < height)
-	{
-		w = 0;
-		init[h] = malloc(s * widht);
-		if (!init[h])
-			return (NULL);
-		while (w < widht)
-		{
-			init[h][w].x = w;
-			init[h][w].y = h;
-			init[h][w].etats = 0;
-			w++;
-		}
-		h++;
-	}
-	return (init);
+	if ((column < 0) || (column >= widht) || (jeu[height - 1][column].etats != 0))
+		return (0);
+	i = 0;
+	while (jeu[i][column].etats != 0)
+		i++;
+	jeu[i][column].etats = side;
+	return (1);
 }

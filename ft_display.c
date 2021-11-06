@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:24:47 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/06 14:55:20 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/06 15:48:18 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,8 @@ void	ft_display(struct s_amove **jeu, int widht, int height)
 	int	i;
 	int	j;
 
-	i = 0;
-	while (i < height)
+	i = height - 1;
+	while (i >= 0)
 	{
 		j = 0;
 		while (j < widht)
@@ -33,6 +33,6 @@ void	ft_display(struct s_amove **jeu, int widht, int height)
 			j++;
 		}
 		write(1, "\n", 1);
-		i++;
+		i--;
 	}
 }

@@ -1,43 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_init_struct.c                                   :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/06 13:57:27 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/06 16:30:35 by njaros           ###   ########lyon.fr   */
+/*   Created: 2021/11/06 16:17:20 by njaros            #+#    #+#             */
+/*   Updated: 2021/11/06 16:29:44 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rushai.h"
 
-t_amove	**ft_init_struct(int widht, int height)
+void	ft_free(struct s_amove **jeu, int height)
 {
-	t_amove	**init;
-	int	h;
-	int w;
-	int	s;
+	int	i;
 
-	s = sizeof(t_amove);
-	h = 0;
-	init = malloc((sizeof(t_amove*)) * height);
-	if (!init)
-		return (NULL);
-	while (h < height)
+	i = 0;
+	while (i < height)
 	{
-		w = 0;
-		init[h] = malloc(s * widht);
-		if (!init[h])
-			return (NULL);
-		while (w < widht)
-		{
-			init[h][w].x = w;
-			init[h][w].y = h;
-			init[h][w].etats = 0;
-			w++;
-		}
-		h++;
+		if (jeu[i] != NULL)
+			free(jeu[i]);
+		i++;
 	}
-	return (init);
+	free(jeu);
 }
