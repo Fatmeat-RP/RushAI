@@ -1,58 +1,62 @@
-#include <stdlib.h>
-#include <stdio.h>
-#include <string.h>
+#include "rushai.h"
 
 char	*getinput(void)
 {
 	int	i;
-	int	n;
 	char *str;
+	char *buf;
 	char c;
 
 	i = 0;
-	n = 0;
 	str = (char*)malloc(sizeof(char) * 15);
 	if (!str)
-		return (0);
+		return (NULL);
 	while (42)
 	{
 		c = getchar();
 		if (c == 'x')
 		{
 			free(str);
-			return (NULL);
+			return ("nope");
 		}
 		str[i] = c;
 		i++;
 		if (c == '\n')
 		{
 			i = 0;
-			return (str);
+			buf = str;
+			free(str);
+			return (buf);
 		}
 		if (strlen(str) >= 10)
 		{
 			printf("Wrong Value, please don't input more than 10 character\n");
-			return (NULL);
+			free(str);
+			return ("nope");
 		}
 	}
 	free(str);
-	return (0);
+	return ("nope");
 }
+/*
+struct s_parms	init_params(void)
+{
+	
+}*/
 
 int	main(void)
 {
 	int	i = 0;
+	char *str;
 
 	while(42)
 	{
 		printf("index : %i\n", i);
-		if (getinput != 0)
-		{
-			printf("input : %i\n", atoi(getinput()));
-			i++;
-			if (i %= 1 && astart)
-			if (i %= 2 && bstart)
-		}
+		str = strdup(getinput());
+		if (!(strcmp(str, "nope")))
+			return (0);
+		printf("input : %i\n", atoi(str));
+		i++;
 	}
 	return (0);
 }
