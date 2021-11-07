@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:33:55 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/06 17:10:20 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 15:37:05 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ int	main(int ac, char **av)
 	height = ft_atoi(av[1]);
 	widht = ft_atoi(av[2]);
 	jeu = ft_init_struct(widht, height);
-	ft_display(jeu, widht, height);
+	//ft_display(jeu, widht, height);
 	while (av[i])
 	{
 		if (i % 2 == 0)
@@ -34,6 +34,8 @@ int	main(int ac, char **av)
 		i++;
 	}
 	ft_display(jeu, widht, height);
+	ft_putnbr_fd(ft_count_win(jeu, 3, 0, widht, height, 4), 1);
+	ft_putchar_fd('\n', 1);
 	ft_free(jeu, height);
 	return (0);
 }

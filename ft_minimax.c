@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 10:02:09 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/07 13:18:54 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 15:13:02 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ int	ft_minimax(struct s_amove **jeu_sim, int x, int y, int widht, int height, in
 	value = 0;
 	i = 0;
 	if (depht == 0)
-		return ft_calcul_poids(jeu_sim, x, y, widht, height);
+		return ft_count_win(jeu_sim, x, y, widht, height, 4);
 	if (y == -1)
 		return (0);
 	if (joueur == 1)
