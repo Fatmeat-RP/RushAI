@@ -6,13 +6,13 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/07 10:02:09 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/07 13:00:50 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 13:18:54 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "rushai.h"
 
-int	ft_minimax(struct t_amove **jeu_sim, int x, int y, int widht, int height, int depht, int joueur)
+int	ft_minimax(struct s_amove **jeu_sim, int x, int y, int widht, int height, int depht, int joueur)
 {
 	int i;
 	int value;
@@ -22,9 +22,7 @@ int	ft_minimax(struct t_amove **jeu_sim, int x, int y, int widht, int height, in
 	value = 0;
 	i = 0;
 	if (depht == 0)
-	{
-		return ft_calcul_poids(jeu_sim, x, y);
-	}
+		return ft_calcul_poids(jeu_sim, x, y, widht, height);
 	if (y == -1)
 		return (0);
 	if (joueur == 1)
@@ -33,7 +31,7 @@ int	ft_minimax(struct t_amove **jeu_sim, int x, int y, int widht, int height, in
 		{
 			played = ft_add_token(jeu_sim, i, joueur, widht, height);
 			value = ft_max(value, ft_minimax(jeu_sim, i, played, widht, height, depht - 1, 2));
-			jeu_sim[i][played].states = 0;
+			jeu_sim[i][played].etats = 0;
 			i++;
 		}
 	}
@@ -44,7 +42,7 @@ int	ft_minimax(struct t_amove **jeu_sim, int x, int y, int widht, int height, in
 		{
 			played = ft_add_token(jeu_sim, i, joueur, widht, height);
 			value = ft_min(value, ft_minimax(jeu_sim, i, played, widht, height, depht - 1, 1));
-			jeu_sim[i][played].states = 0;
+			jeu_sim[i][played].etats = 0;
 			i++;
 		}
 	}
