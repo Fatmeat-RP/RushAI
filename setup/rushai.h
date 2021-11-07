@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:01:26 by acarle-m          #+#    #+#             */
-/*   Updated: 2021/11/07 15:08:38 by acarle-m         ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 18:07:27 by acarle-m         ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct	s_parms
 {
-	int	width;
+	int	widht;
 	int	height;
 	int	win_cond;
 	int	start;
@@ -48,17 +48,21 @@ typedef struct	s_bmove
 	struct s_bmove	*prev;
 }				t_bmove;
 
-/* fonction */
-
+int		ft_max(int a, int b);
 int		ft_min(int a, int b);
 int		ft_minimax(struct s_amove **jeu_sim, int x, int y, int widht, int height, int depht, int joueur);
+int		ft_count_win(struct s_amove **jeu, int x, int y, int widht, int height, int win_cond);
 int		ft_atoi(const char *nptr);
 void	ft_display(struct s_amove **jeu, int widht, int height);
 t_amove	**ft_init_struct(int widht, int height);
 void	ft_putchar_fd(char c, int fd);
 void	ft_putnbr_fd(int n, int fd);
+void	ft_putstr_fd(char *s, int fd);
+void	ft_putendl_fd(char *s, int fd);
 int		ft_add_token(struct s_amove **jeu, int column, int side, int widht, int height);
 void	ft_free(struct s_amove **jeu, int height);
+int		ft_intoi(void);
 char	*getinput(void);
+
 
 #endif

@@ -38,26 +38,4 @@ char	*getinput(void)
 	free(str);
 	return ("nope");
 }
-/*
-struct s_parms	init_params(void)
-{
-	
-}*/
-
-int	main(void)
-{
-	int	i = 0;
-	char *str;
-
-	while(42)
-	{
-		printf("index : %i\n", i);
-		str = strdup(getinput());
-		if (!(strcmp(str, "nope")))
-			return (0);
-		printf("input : %i\n", atoi(str));
-		i++;
-	}
-	return (0);
-}
 
