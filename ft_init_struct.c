@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:57:27 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/07 16:10:18 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 16:19:17 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,24 +20,24 @@ t_amove	**ft_init_struct(int widht, int height)
 	int	s;
 
 	s = sizeof(t_amove);
-	w = 0;
-	init = malloc((sizeof(t_amove*)) * widht);
+	h = 0;
+	init = malloc((sizeof(t_amove*)) * height);
 	if (!init)
 		return (NULL);
-	while (w < widht)
+	while (h < height)
 	{
-		h = 0;
-		init[w] = malloc(s * height);
-		if (!init[w])
+		w = 0;
+		init[h] = malloc(s * widht);
+		if (!init[h])
 			return (NULL);
-		while (h < height)
+		while (w < widht)
 		{
-			init[w][h].x = w;
-			init[w][h].y = h;
-			init[w][h].etats = 0;
-			h++;
+			init[h][w].x = w;
+			init[h][w].y = h;
+			init[h][w].etats = 0;
+			w++;
 		}
-		w++;
+		h++;
 	}
 	return (init);
 }

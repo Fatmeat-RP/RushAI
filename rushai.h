@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 13:01:26 by acarle-m          #+#    #+#             */
-/*   Updated: 2021/11/07 15:21:33 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 17:52:33 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,8 @@ typedef struct	s_bmove
 
 int		ft_max(int a, int b);
 int		ft_min(int a, int b);
-int		ft_minimax(struct s_amove **jeu_sim, int x, int y, int widht, int height, int depht, int joueur);
+int		ft_poids_feuille(struct s_amove **jeu, int x, int y, int widht, int height, int win_cond);
+int		ft_minimax(struct s_amove **jeu_sim, int x, int y, int widht, int height, int depht, int joueur, int win_cond);
 int		ft_count_win(struct s_amove **jeu, int x, int y, int widht, int height, int win_cond);
 int		ft_atoi(const char *nptr);
 void	ft_display(struct s_amove **jeu, int widht, int height);

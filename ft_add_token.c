@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 15:03:08 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/07 16:14:32 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 16:59:27 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,11 @@ int	ft_add_token(struct s_amove **jeu, int column, int side, int widht, int heig
 {
 	int	i;
 
-	if ((column < 0) || (column >= widht) || (jeu[column][height - 1].etats != 0))
+	if ((column < 0) || (column >= widht) || (jeu[height - 1][column].etats != 0))
 		return (-1);
 	i = 0;
-	while (jeu[column][i].etats != 0)
+	while (jeu[i][column].etats != 0)
 		i++;
-	jeu[column][i].etats = side;
+	jeu[i][column].etats = side;
 	return (i);
 }

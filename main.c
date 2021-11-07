@@ -6,7 +6,7 @@
 /*   By: njaros <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/06 14:33:55 by njaros            #+#    #+#             */
-/*   Updated: 2021/11/07 15:37:05 by njaros           ###   ########lyon.fr   */
+/*   Updated: 2021/11/07 18:03:11 by njaros           ###   ########lyon.fr   */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,6 @@ int	main(int ac, char **av)
 	height = ft_atoi(av[1]);
 	widht = ft_atoi(av[2]);
 	jeu = ft_init_struct(widht, height);
-	//ft_display(jeu, widht, height);
 	while (av[i])
 	{
 		if (i % 2 == 0)
